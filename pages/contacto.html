@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | MI MARCA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="../images/Logo.jpg" alt="Logo MI MARCA" onerror="this.src='https://placehold.co/44x44/3b82f6/white?text=M'">
+                <h1><a href="../index.html">MI MARCA</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">La Agencia</a></li>
+                    <li><a href="servicios.html">Especialidad</a></li>
+                    <li><a href="portafolio.html">Proyectos</a></li>
+                    <li><a href="clientes.html">Aliados</a></li>
+                    <li><a href="contacto.html" class="active btn btn-primary" style="padding: 0.6rem 1.5rem; margin-top: -0.2rem; color: #000; border: none;">Contactar</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: 45vh; align-items:flex-end; padding-bottom: 5rem;">
+            <div class="hero-glow" style="background: radial-gradient(circle at bottom, rgba(59, 130, 246, 0.4), transparent 60%); width: 800px; height: 300px;"></div>
+            <div class="container hero-content" style="text-align: left; max-width: 1400px;">
+                <h1 class="fade-up stagger-1" style="font-size: clamp(3rem, 7vw, 6rem);">Inicia tu <br><span class="text-gradient">Revolución Visual</span></h1>
+            </div>
+        </section>
+
+        <section class="section container" style="padding-top: 0;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start;">
+                
+                <div class="fade-up stagger-2">
+                    <p style="font-size: 1.25rem; font-weight: 300; color: var(--text-muted); margin-bottom: 3rem;">
+                        Nuestra división comercial estructurará un diagnóstico para descifrar las fricciones de compra de tu producto. ¿Mala exhibición? ¿Bajo tráfico BTL? Permítenos hackear la atención de tu audiencia.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 20px;">
+                            <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary);">HQ</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px; font-size: 1.1rem;">Headquarters</h4>
+                                <p style="margin: 0; color: var(--text-muted);">Distrito Corporativo, Suite 410<br>Tegucigalpa, FM. Honduras</p>
+                            </div>
+                        </div>
+
+                        <a href="tel:+50499990000" style="display: flex; align-items: flex-start; gap: 20px;" class="card-link">
+                            <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary);">📲</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px; font-size: 1.1rem; color:#fff;">Línea Ejecutiva</h4>
+                                <p style="margin: 0; color: var(--text-muted); text-transform:none;">+504 9999-0000</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@mimarca.agency" style="display: flex; align-items: flex-start; gap: 20px;" class="card-link">
+                            <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(236, 72, 153, 0.1); border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--accent);">✉️</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px; font-size: 1.1rem; color:#fff;">Agendar por Correo</h4>
+                                <p style="margin: 0; color: var(--text-muted); text-transform:none;">info@mimarca.agency</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card fade-up stagger-3" style="background: rgba(10, 10, 10, 0.8); border: 1px solid rgba(255,255,255,0.08); padding: 3rem;">
+                    <form id="contact-form" data-type="contacto">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="nombre">Nombre Completo *</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu Nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu corporación">
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="email">E-Mail Corporativo *</label>
+                                <input type="email" id="email" name="correo" required placeholder="tu@empresa.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+504 9999-0000">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="servicio">División a intervenir</label>
+                                <select id="servicio" name="servicio">
+                                    <option value="" disabled selected style="color:#000;">Selecciona un servicio...</option>
+                                    <option style="color:#000;" value="Estrategia y Activaciones BTL">Estrategia y Activaciones BTL</option>
+                                    <option style="color:#000;" value="Industrial & Material POP">Industrial & Material POP</option>
+                                    <option style="color:#000;" value="Sourcing de Merchandising Premium">Sourcing de Merchandising Premium</option>
+                                    <option style="color:#000;" value="Diseño Arquitectónico de Stand/Evento">Diseño Arquitectónico de Stand/Evento</option>
+                                    <option style="color:#000;" value="Auditoría integral de línea">Auditoría integral de línea</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="presupuesto">Presupuesto Estimado ($)</label>
+                                <select id="presupuesto" name="presupuesto">
+                                    <option value="" disabled selected style="color:#000;">Selecciona un rango...</option>
+                                    <option style="color:#000;" value="Menos de $5,000">Menos de $5,000</option>
+                                    <option style="color:#000;" value="$5,000 - $15,000">$5,000 - $15,000</option>
+                                    <option style="color:#000;" value="$15,000 - $50,000">$15,000 - $50,000</option>
+                                    <option style="color:#000;" value="Más de $50,000">Más de $50,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha">Fecha Deseada del Proyecto</label>
+                            <input type="date" id="fecha" name="fecha_deseada" style="width: 100%; padding: 0.8rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; border-radius: 8px;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Brief Inicial *</label>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Describa el objetivo principal que su corporación busca alcanzar..."></textarea>
+                        </div>
+                        
+                        <div id="form-feedback" style="display:none; margin-bottom: 1rem; padding: 1rem; border-radius: 8px; font-weight: 500;"></div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 8px; font-size: 1.1rem;">Enviar Solicitud Confidencial</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- massive footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col" style="grid-column: span 2;">
+                <div class="logo" style="margin-bottom: 1.5rem;">
+                    <h1 style="font-size: 1.8rem; letter-spacing: 0;">MI MARCA</h1>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 350px;">
+                    Agencia boutique de diseño y estrategias BTL. Somos los traductores entre tu corporación y la cultura visual contemporánea. Nuestra atención confidencial garantiza resultados de alta fidelidad.
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Agencia</h4>
+                <ul>
+                    <li><a href="nosotros.html">Filosofía</a></li>
+                    <li><a href="servicios.html">Especialidad</a></li>
+                    <li><a href="portafolio.html">Proyectos Destacados</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Confianza</h4>
+                <ul>
+                    <li><a href="clientes.html">Nuestros Aliados</a></li>
+                    <li><a href="testimonios.html">Casos de Éxito</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 MI MARCA Agency LLC. Todos los derechos reservados.</p>
+            <div style="display:flex; gap: 1rem;">
+                <a href="#">Políticas de Confidencialidad (NDA)</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

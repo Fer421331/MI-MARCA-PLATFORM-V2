@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Solicitudes | MI MARCA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: rgba(10, 10, 10, 0.8); border: 1px solid rgba(255,255,255,0.08); }
+        .admin-table th, .admin-table td { padding: 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .admin-table th { color: var(--primary); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .admin-table td { color: #ccc; font-size: 0.95rem; vertical-align: top; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .badge-contacto { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .badge-cotizacion { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .badge-servicio { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
+        .cell-long { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <header style="background: rgba(0,0,0,0.9); position: relative;">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="../images/Logo.jpg" alt="Logo MI MARCA" onerror="this.src='https://placehold.co/44x44/3b82f6/white?text=M'">
+                <h1><a href="../index.html">MI MARCA <span style="font-size: 0.8rem; color: #666;">| ADMIN VISUAL</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Volver al Sitio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 4rem 1rem; min-height: 80vh;">
+        <h2 style="margin-bottom: 1rem;">Panel de <span class="text-gradient">Solicitudes Recibidas</span></h2>
+        <p style="color: var(--text-muted);">Listado en tiempo real de los leads y contactos entrantes.</p>
+
+        <div style="overflow-x: auto;">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Cliente / Empresa</th>
+                        <th>Contacto</th>
+                        <th>Servicio</th>
+                        <th>Presupuesto</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody id="solicitudes-body">
+                    <tr><td colspan="7" style="text-align: center; padding: 3rem;">Cargando solicitudes...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const tableBody = document.getElementById('solicitudes-body');
+            
+            try {
+                const response = await fetch('/api/solicitudes');
+                const result = await response.json();
+                
+                if (result.success && result.data.length > 0) {
+                    tableBody.innerHTML = '';
+                    result.data.forEach(s => {
+                        const date = new Date(s.fecha_creacion).toLocaleString('es-HN', { dateStyle: 'short', timeStyle: 'short' });
+                        
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td style="white-space: nowrap;">${date}</td>
+                            <td><span class="badge badge-${s.tipo_formulario}">${s.tipo_formulario}</span></td>
+                            <td><strong>${s.nombre}</strong><br><span style="color:#888; font-size: 0.85rem;">${s.empresa || '-'}</span></td>
+                            <td><a href="mailto:${s.correo}" style="color: var(--primary); text-decoration: none;">${s.correo}</a><br><span style="color:#888; font-size: 0.85rem;">${s.telefono || '-'}</span></td>
+                            <td>${s.servicio || '-'}</td>
+                            <td>${s.presupuesto || '-'}</td>
+                            <td class="cell-long" title="${s.mensaje}">${s.mensaje}</td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                } else {
+                    tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem;">No hay solicitudes registradas aún.</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #ef4444; padding: 3rem;">Error al cargar las solicitudes. Asegúrate de estar corriendo el servidor Node.js.</td></tr>';
+            }
+        });
+    </script>
+</body>
+</html>
